@@ -7,7 +7,7 @@ const Projects = () => {
       id: 1,
       title: 'Landding page de advocacia',
       description: 'Landing page para uma empresa de advocacia.',
-      image: '/src/assets/Adv.png',
+      image: '/Adv.png', // Updated path
       tags: ['HTML', 'CSS', 'JavaScript'],
       demoLink: 'https://ademir-ten.vercel.app/',
       codeLink: 'https://github.com/LzGuimaraes/SiteAdemir',
@@ -16,7 +16,7 @@ const Projects = () => {
       id: 2,
       title: 'Gerenciador-Tarefas',
       description: 'Plataforma para gerenciamento de tarefas.',
-      image: '/src/assets/gerenciador-tarefas.png',
+      image: '/gerenciador-tarefas.png', // Updated path
       tags: ['React', 'JavaScript'],
       demoLink: 'https://gerenciador-tarefas-nine-lyart.vercel.app',
       codeLink: 'https://github.com/LzGuimaraes/Gerenciador-Tarefas',
@@ -25,7 +25,7 @@ const Projects = () => {
       id: 3,
       title: 'Yield-Sync ',
       description: 'Plataforma para verificar ações do mercado financeiro com muitos indicadores.',
-      image: '/src/assets/Yield.png',
+      image: '/Yield.png', // Updated path
       tags: ['TypeScript', 'React'],
       demoLink: 'https://yield-sync.vercel.app/',
       codeLink: 'https://github.com/LzGuimaraes/Yield-Sync',

@@ -58,10 +58,12 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-white">Contato</h4>
             <ul className="space-y-3">
-              <li className="flex items-center">
-                <svg className="w-5 h-5 mr-3 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+            <li className="flex items-center">
+                <div className="flex-shrink-0 text-primary-500 mr-3">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                  </svg>
+                </div>
                 <span className="text-gray-400">luizsantosleventi19901@gmail.com</span>
               </li>
               <li className="flex items-center">
