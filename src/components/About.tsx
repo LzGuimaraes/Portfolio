@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const About = () => {
   // Lista de habilidades técnicas
@@ -58,8 +58,7 @@ const About = () => {
             </h3>
             <p className="text-secondary-700 dark:text-gray-300 leading-relaxed">
               Sou um desenvolvedor full stack apaixonado por criar soluções digitais que resolvem problemas reais. 
-              Com experiência em desenvolvimento web e mobile, tenho trabalhado em diversos projetos que vão desde 
-              aplicações corporativas até startups inovadoras.
+              Com experiência em desenvolvimento web e mobile, tenho trabalhado em diversos projetos.
             </p>
             <p className="text-secondary-700 dark:text-gray-300 leading-relaxed">
               Minha jornada na programação começou há mais de 2 anos, e desde então venho constantemente 
@@ -70,17 +69,17 @@ const About = () => {
               não apenas funcionais, mas também intuitivas e agradáveis para os usuários.
             </p>
             <p className="text-secondary-700 dark:text-gray-300 leading-relaxed">
-              Tenho experiencia como estagio e também na area de projetos com Metologias Agéis .
+              Tenho experiencia também na area de projetos com Metologias Agéis Scrum e Kanban.
             </p>
             
             {/* Botão para download do currículo */}
             <div className="pt-6">
               <a 
-                href="/assets/curriculo.pdf" 
+                href="/assets/Curriculo.pdf" 
                 className="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-md hover:bg-primary-700 transition duration-300 shadow-custom group"
                 target="_blank" 
                 rel="noopener noreferrer"
-                download="Curriculo (1).pdf"
+                download="Curriculo.pdf"
               >
                 <span>Download CV</span>
                 <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

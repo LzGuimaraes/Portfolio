@@ -1,48 +1,40 @@
-import React, { useEffect, useRef, useState } from 'react';
+import  { useEffect, useRef, useState } from 'react';
 
 const Projects = () => {
   // Lista de projetos
   const projects = [
     {
       id: 1,
-      title: 'E-commerce Dashboard',
-      description: 'Dashboard administrativo para gerenciamento de produtos, pedidos e clientes de uma loja virtual.',
-      image: 'https://via.placeholder.com/600x400',
-      tags: ['React', 'Node.js', 'MongoDB', 'Express'],
-      demoLink: '#',
-      codeLink: '#',
+      title: 'Landding page de advocacia',
+      description: 'Landing page para uma empresa de advocacia.',
+      image: '/src/assets/Adv.png',
+      tags: ['HTML', 'CSS', 'JavaScript'],
+      demoLink: 'https://ademir-ten.vercel.app/',
+      codeLink: 'https://github.com/LzGuimaraes/SiteAdemir',
     },
     {
       id: 2,
-      title: 'App de Finanças Pessoais',
-      description: 'Aplicativo para controle de despesas e receitas com gráficos e relatórios personalizados.',
-      image: 'https://via.placeholder.com/600x400',
-      tags: ['React Native', 'Firebase', 'JavaScript'],
-      demoLink: '#',
-      codeLink: '#',
+      title: 'Gerenciador-Tarefas',
+      description: 'Plataforma para gerenciamento de tarefas.',
+      image: '/src/assets/gerenciador-tarefas.png',
+      tags: ['React', 'JavaScript'],
+      demoLink: 'https://gerenciador-tarefas-nine-lyart.vercel.app',
+      codeLink: 'https://github.com/LzGuimaraes/Gerenciador-Tarefas',
     },
     {
       id: 3,
-      title: 'Sistema de Gestão de Tarefas',
-      description: 'Plataforma para gerenciamento de projetos e tarefas com funcionalidades de colaboração em equipe.',
-      image: 'https://via.placeholder.com/600x400',
-      tags: ['TypeScript', 'React', 'Redux', 'Node.js'],
-      demoLink: '#',
-      codeLink: '#',
+      title: 'Yield-Sync ',
+      description: 'Plataforma para verificar ações do mercado financeiro com muitos indicadores.',
+      image: '/src/assets/Yield.png',
+      tags: ['TypeScript', 'React'],
+      demoLink: 'https://yield-sync.vercel.app/',
+      codeLink: 'https://github.com/LzGuimaraes/Yield-Sync',
     },
-    {
-      id: 4,
-      title: 'API RESTful',
-      description: 'API para integração de sistemas com autenticação JWT e documentação Swagger.',
-      image: 'https://via.placeholder.com/600x400',
-      tags: ['Node.js', 'Express', 'MongoDB', 'JWT'],
-      demoLink: '#',
-      codeLink: '#',
-    },
+    
   ];
 
   const [isVisible, setIsVisible] = useState(false);
-  const [activeProject, setActiveProject] = useState<number | null>(null);
+  const [, setActiveProject] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {

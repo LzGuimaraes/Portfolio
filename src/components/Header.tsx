@@ -29,20 +29,22 @@ const Header = () => {
         : 'bg-transparent text-white py-5'}`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="font-heading text-xl md:text-2xl font-bold flex items-center">
-          <span className={`mr-2 text-primary-600 transition-colors duration-300 ${isScrolled ? 'text-primary-600' : 'text-primary-400'}`}>&lt;</span>
-          Luiz Guimarães
-          <span className={`ml-2 text-primary-600 transition-colors duration-300 ${isScrolled ? 'text-primary-600' : 'text-primary-400'}`}>/&gt;</span>
+      <a href="#home" className="font-heading text-xl md:text-2xl font-bold flex items-center group">
+          <span className={`transition-colors duration-300 ${isScrolled ? 'text-secondary-900' : 'text-white'} group-hover:text-primary-500`}>Luiz Guimarães</span>
         </a>
         
         {/* Mobile menu button */}
         <button 
-          className="md:hidden focus:outline-none"
+          className="md:hidden focus:outline-none group"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
           <svg 
-            className={`w-6 h-6 transition-colors duration-300 ${isScrolled ? 'text-secondary-900' : 'text-white'}`} 
+            className={`w-6 h-6 transition-colors duration-300 ${
+              isScrolled 
+                ? 'text-primary-600 hover:text-primary-700' 
+                : 'text-primary-400 hover:text-primary-300'
+            }`} 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24" 

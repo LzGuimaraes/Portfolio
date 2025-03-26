@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -39,21 +39,6 @@ const Hero = () => {
         <p className={`text-xl max-w-2xl mb-8 text-gray-300 transition-all duration-700 delay-400 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           Transformando ideias em soluções digitais com código limpo e design intuitivo.
         </p>
-        
-        <div className={`flex flex-wrap justify-center gap-4 transition-all duration-700 delay-500 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <a 
-            href="#projects" 
-            className="px-6 py-3 bg-primary-600 hover:bg-primary-700 rounded-md transition duration-300 font-medium shadow-custom"
-          >
-            Ver Projetos
-          </a>
-          <a 
-            href="#contact" 
-            className="px-6 py-3 bg-transparent border-2 border-primary-500 hover:bg-primary-500/20 rounded-md transition duration-300 font-medium backdrop-blur-sm"
-          >
-            Contato
-          </a>
-        </div>
         
         <div className={`mt-12 flex justify-center space-x-6 transition-all duration-700 delay-600 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {/* Social media icons */}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import  { useState, useEffect, useRef } from 'react';
 
 const Contact = () => {
 
@@ -46,7 +46,7 @@ const Contact = () => {
           <span className="inline-block border-b-4 border-primary-500 pb-2">Entre em Contato</span>
         </h2>
         <p className={`text-secondary-600 dark:text-gray-400 text-center max-w-2xl mx-auto mb-12 transition-all duration-700 delay-100 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          Tem alguma pergunta ou está interessado em trabalhar comigo? Preencha o formulário abaixo e entrarei em contato o mais breve possível.
+          Tem alguma pergunta ou está interessado em trabalhar comigo?     Meus contatos estão logo abaixo.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
