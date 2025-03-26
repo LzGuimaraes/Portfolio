@@ -21,10 +21,11 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-16 flex flex-col items-center text-center relative z-10">
         <div className={`transition-all duration-700 delay-100 transform ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="w-40 h-40 rounded-full overflow-hidden mb-8 border-4 border-primary-500 shadow-custom-lg p-1 bg-white/10 backdrop-blur-sm">
-            {/* Placeholder for profile image - replace with actual image */}
-            <div className="w-full h-full bg-gradient-to-br from-primary-600 to-primary-800 rounded-full flex items-center justify-center">
-              <span className="text-4xl font-bold text-white">LG</span>
-            </div>
+            <img 
+              src="/img.jpg" 
+              alt="Luiz Guimarães" 
+              className="w-full h-full object-cover rounded-full"
+            />
           </div>
         </div>
         
