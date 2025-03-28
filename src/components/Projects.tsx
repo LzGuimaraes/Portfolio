@@ -9,7 +9,7 @@ const Projects = () => {
       description: 'Landing page para uma empresa de advocacia.',
       image: '/Adv.png', // Updated path
       tags: ['HTML', 'CSS', 'JavaScript'],
-      demoLink: 'https://ademir-ten.vercel.app/',
+      demoLink: 'https://www.ademirjradv.com.br/',
       codeLink: 'https://github.com/LzGuimaraes/SiteAdemir',
     },
     {
