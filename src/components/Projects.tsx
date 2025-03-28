@@ -30,6 +30,33 @@ const Projects = () => {
       demoLink: 'https://yield-sync.vercel.app/',
       codeLink: 'https://github.com/LzGuimaraes/Yield-Sync',
     },
+    {
+      id: 4,
+      title: 'Show do Milhao ',
+      description: 'Jogo "Show do Milhão", para se divertir e passar o tempo.',
+      image: '/ShowMilhao.png', // Updated path
+      tags: ['JavaScript', 'React'],
+      demoLink: 'https://show-do-milhao-gamma.vercel.app/',
+      codeLink: 'https://github.com/LzGuimaraes/Show-do-Milhao',
+    },
+    {
+      id: 5,
+      title: 'Movie List ',
+      description: 'Plataforma de agendamento de Filmes.',
+      image: '/Movie.png', // Updated path
+      tags: ['JavaScript', 'HTML', 'CSS'],
+      demoLink: 'https://movie-list-eosin-nine.vercel.app',
+      codeLink: 'https://github.com/LzGuimaraes/Movie-List',
+    },
+    {
+      id: 6,
+      title: 'Learn English ',
+      description: 'Plataforma para aprender Ingles.',
+      image: '/Learn.png', // Updated path
+      tags: ['JavaScript', 'HTML', 'CSS'],
+      demoLink: 'https://learn-english-ruby.vercel.app/',
+      codeLink: 'https://github.com/LzGuimaraes/LearnEnglish',
+    }
     
   ];
 
