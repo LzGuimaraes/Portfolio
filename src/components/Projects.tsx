@@ -16,7 +16,7 @@ const projects = [
     id: 1,
     title: "Focus Life",
     description:
-      "Plataforma fullstack de gestão pessoal, integrando finanças, estudos, tarefas, metas, aulas e treinos, com cotações de ações e ETFs em tempo real.",
+      "Plataforma fullstack de gestão pessoal integrando finanças, estudos, tarefas, metas, aulas e treinos. Backend em Java e Spring Boot com APIs REST, autenticação, autorização por roles e gerenciamento de unidades; frontend em React e TypeScript com cotações de ações e ETFs em tempo real. Publicada em produção com VPS Linux e CI/CD.",
     images: ["/projects/focus-1.png", "/projects/focus-2.png", "/projects/focus-3.png"],
     tags: ["Java", "Spring Boot", "React", "TypeScript"],
     demoLink: "https://focus.lzguimaraes.com.br/",
@@ -26,7 +26,7 @@ const projects = [
     id: 2,
     title: "Kung Fu Wushu",
     description:
-      "Plataforma de gestão da escola Kung Fu Cuiabá, usada por alunos e professores em produção: turmas, alunos, pagamentos e controle de acesso por perfil.",
+      "Plataforma de gestão da escola Kung Fu Cuiabá, usada por alunos e professores em produção. Backend em NestJS e frontend em Vite, com autenticação e controle de acesso por perfis, gestão de alunos, turmas, pagamentos e publicações. Deploy automatizado com VPS Linux e CI/CD.",
     images: ["/projects/wushu-1.png", "/projects/wushu-2.png", "/projects/wushu-3.png"],
     tags: ["NestJS", "React", "TypeScript", "Vite"],
     demoLink: "https://wushu.lzguimaraes.com.br",

@@ -83,10 +83,11 @@ const experience: TimelineItem[] = [
     org: "Grupo Optimus",
     period: "2026 — Atual",
     bullets: [
-      "Aplicações web com Java (Spring Boot) no backend e React no frontend",
-      "Pipelines automatizados de processamento de dados (ETL em Python)",
-      "Integração de dados entre serviços AWS, APIs REST e bancos SQL",
-      "Administração de recursos AWS (EC2, S3, IAM, VPC), Roles, Policies e Security Groups",
+      "Desenvolvimento de plataforma de agregação de leilões, com coleta automatizada de dados por meio de web scraping",
+      "Backend em Java e Spring Boot e frontend em TypeScript, implementando APIs, autenticação e regras de negócio",
+      "Integração com Twilio para autenticação e Asaas para pagamentos, com suporte a diferentes planos e fluxos de cobrança",
+      "Integração automatizada com WhatsApp (Neonize), incluindo criação de grupos e atribuição de assessor responsável como administrador",
+      "Implementação de CI/CD, build e deploy em VPS, além de configuração de domínios, DNS e redirecionamentos",
     ],
   },
   {
@@ -94,10 +95,10 @@ const experience: TimelineItem[] = [
     org: "STELSEG",
     period: "2026",
     bullets: [
-      "Monitoramento de ambientes críticos de videomonitoramento e alta disponibilidade",
-      "Incidentes N1/N2 em redes e CFTV, com acompanhamento de SLA e escalonamento",
-      "Troubleshooting de streaming (RTSP, HLS) e conectividade TCP/IP, DNS e roteamento",
-      "Análise de logs e métricas para causa raiz; documentação de procedimentos",
+      "Monitoramento de ambientes críticos de videomonitoramento e infraestrutura, acompanhando a disponibilidade dos ativos de CFTV",
+      "Troubleshooting de conectividade TCP/IP, com diagnóstico de falhas envolvendo IP, DHCP, DNS e roteamento",
+      "Investigação de problemas de transmissão de vídeo e conectividade, incluindo análise de RTSP, HLS, logs e métricas",
+      "Atendimento de incidentes N1 e N2, acompanhamento de SLA e elaboração de relatórios técnicos",
     ],
   },
   {
@@ -106,8 +107,7 @@ const experience: TimelineItem[] = [
     period: "2025 — 2026",
     bullets: [
       "Apoio ao desenvolvimento de aplicações em Java (Spring Boot) e React",
-      "Rotinas de automação e ETL em Python",
-      "Suporte à administração de recursos AWS e à configuração de permissões e acessos",
+      "Automação e ETL em Python, além de suporte à administração de recursos AWS",
     ],
   },
   {
@@ -115,10 +115,8 @@ const experience: TimelineItem[] = [
     org: "MTI — Empresa Mato-grossense de Tecnologia da Informação",
     period: "2024 — 2025",
     bullets: [
-      "Desenvolvimento e consumo de APIs REST para integração entre sistemas",
-      "Integração com ServiceNow para automação de processos internos",
-      "Dashboards e relatórios operacionais para acompanhamento de demandas",
-      "Automações com Python e Google Apps Script",
+      "Desenvolvimento e integração de APIs REST e automação de processos com ServiceNow",
+      "Criação de dashboards, relatórios e automatizações utilizando Python e Google Apps Script",
     ],
   },
 ];
@@ -244,34 +242,40 @@ const About = () => {
             </h3>
 
             <p className="text-secondary-700 dark:text-gray-300 leading-relaxed">
-              Sou desenvolvedor fullstack com cerca de 2 anos de atuação em TI.
-              No dia a dia, trabalho com{" "}
+              Sou desenvolvedor fullstack com experiência em aplicações e
+              sistemas em produção. Atuo principalmente com{" "}
               <strong className="text-secondary-900 dark:text-white">
                 Java e Spring Boot no backend
-              </strong>
-              ,{" "}
-              <strong className="text-secondary-900 dark:text-white">
-                React e TypeScript no frontend
               </strong>{" "}
               e{" "}
               <strong className="text-secondary-900 dark:text-white">
-                infraestrutura AWS
+                React e TypeScript no frontend
               </strong>
-              , construindo aplicações desde a estruturação inicial do projeto
-              até o deploy em produção.
+              , além de integrações com APIs, automação,{" "}
+              <strong className="text-secondary-900 dark:text-white">
+                AWS, CI/CD e infraestrutura Linux
+              </strong>{" "}
+              — construindo soluções do zero, desde requisitos e regras de
+              negócio até o deploy e a manutenção em produção.
             </p>
             <p className="text-secondary-700 dark:text-gray-300 leading-relaxed">
-              Na prática, isso significa modelar o backend, implementar
-              autenticação e autorização, integrar serviços externos, organizar
-              o armazenamento de arquivos em S3 com as permissões de IAM
-              necessárias, construir a interface, configurar o ambiente no
-              servidor e automatizar build, deploy e atualização com CI/CD.
+              Hoje desenvolvo uma plataforma de agregação de leilões, com coleta
+              automatizada de dados por web scraping, integrações com{" "}
+              <strong className="text-secondary-900 dark:text-white">
+                Twilio (autenticação)
+              </strong>{" "}
+              e{" "}
+              <strong className="text-secondary-900 dark:text-white">
+                Asaas (pagamentos e planos)
+              </strong>
+              , automação de WhatsApp, além de CI/CD, deploy em VPS e
+              configuração de domínios, DNS e redirecionamentos.
             </p>
             <p className="text-secondary-700 dark:text-gray-300 leading-relaxed">
-              Já conduzi um projeto que reuniu todas essas camadas ao mesmo
-              tempo — frontend, backend, coleta de dados com scraping em Python,
-              banco e armazenamento, infraestrutura e deploy. É essa visão de
-              sistema completo que costumo trazer para os times em que atuo.
+              Tenho experiência em conduzir sistemas de ponta a ponta —
+              frontend, backend, coleta de dados, banco e armazenamento,
+              infraestrutura e deploy. É essa visão de sistema completo que
+              costumo trazer para os times em que atuo.
             </p>
 
             {/* Card de download do currículo */}
