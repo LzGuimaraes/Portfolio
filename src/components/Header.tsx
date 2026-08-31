@@ -125,10 +125,10 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="/assets/Curriculo.pdf"
+              href="/assets/Luiz_Guimaraes_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              download="Curriculo.pdf"
+              download="Luiz_Guimaraes_CV.pdf"
               className="inline-flex items-center px-5 py-2 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-600 via-primary-600 to-fuchsia-600 bg-[length:200%_auto] hover:bg-right transition-all duration-500 shadow-glow hover:shadow-glow-blue text-sm"
             >
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -158,10 +158,10 @@ const Header = () => {
                 </a>
               ))}
               <a
-                href="/assets/Curriculo.pdf"
+                href="/assets/Luiz_Guimaraes_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                download="Curriculo.pdf"
+                download="Luiz_Guimaraes_CV.pdf"
                 className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-600 via-primary-600 to-fuchsia-600 shadow-glow"
                 onClick={() => setIsMenuOpen(false)}
               >

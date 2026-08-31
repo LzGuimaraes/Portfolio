@@ -312,11 +312,11 @@ const About = () => {
 
                 <div className="flex flex-wrap gap-3">
                   <a
-                    href="/assets/Curriculo.pdf"
+                    href="/assets/Luiz_Guimaraes_CV.pdf"
                     className="group inline-flex items-center px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-600 via-primary-600 to-fuchsia-600 bg-[length:200%_auto] hover:bg-right transition-all duration-500 shadow-glow hover:shadow-glow-blue"
                     target="_blank"
                     rel="noopener noreferrer"
-                    download="Curriculo.pdf"
+                    download="Luiz_Guimaraes_CV.pdf"
                   >
                     <svg
                       className="w-5 h-5 mr-2 group-hover:translate-y-0.5 transition-transform duration-300"
