@@ -52,11 +52,34 @@ const FLOATING_TECH = [
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showScroll, setShowScroll] = useState(false);
   const typed = useTypingEffect(ROLES);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  // Só mostra o indicador de scroll quando há espaço livre abaixo do conteúdo
+  // do Hero (evita sobrepor os botões/ícones de contato em telas com conteúdo alto)
+  useEffect(() => {
+    const check = () => {
+      const hero = document.getElementById('home');
+      const socialsLink = hero && hero.querySelector('a[aria-label="GitHub"]');
+      if (!hero || !socialsLink) return;
+      const heroRect = hero.getBoundingClientRect();
+      const socialsRect = socialsLink.parentElement!.getBoundingClientRect();
+      const free = heroRect.bottom - socialsRect.bottom;
+      // ~100px livres: altura do indicador + respiro
+      setShowScroll(free >= 100);
+    };
+    check();
+    const t = window.setTimeout(check, 400);
+    window.addEventListener('resize', check);
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener('resize', check);
+    };
+  }, [isLoaded]);
 
   const reveal = (delay: string) =>
     `transition-all duration-700 ${delay} transform ${
@@ -197,8 +220,10 @@ const Hero = () => {
             </a>
           ))}
         </div>
+      </div>
 
-        {/* Indicador de scroll */}
+      {/* Indicador de scroll (posicionado na base da seção, abaixo do conteúdo) */}
+      {showScroll && (
         <a
           href="#about"
           aria-label="Rolar para a próxima seção"
@@ -209,7 +234,7 @@ const Hero = () => {
             <div className="w-1 h-2 rounded-full bg-primary-400 animate-scroll-hint" />
           </div>
         </a>
-      </div>
+      )}
     </section>
   );
 };
