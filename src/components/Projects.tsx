@@ -1,66 +1,145 @@
 import { useEffect, useRef, useState } from "react";
 
-const Projects = () => {
-  // Lista de projetos
-  const projects = [
-    {
-      id: 1,
-      title: "Landding page de advocacia",
-      description: "Landing page para uma empresa de advocacia.",
-      image: "/Adv.png", // Updated path
-      tags: ["HTML", "CSS", "JavaScript"],
-      demoLink: "https://ademir.lzguimaraes.com.br/",
-      codeLink: "https://github.com/LzGuimaraes/SiteAdemir",
-    },
-    {
-      id: 2,
-      title: "Gerenciador de aulas e de alunos de kongfu",
-      description: "Site de gerenciamento de aulas de kongfu.",
-      image: "/gerenciador-tarefas.png",
-      tags: ["React", "TypeScript", "Nest"],
-      demoLink: "https://wushu.lzguimaraes.com.br",
-      codeLink: "https://github.com/LzGuimaraes/wushu-front",
-    },
-    {
-      id: 3,
-      title: "Focus Life ",
-      description: "Plataforma para gerencimento de financeiro e atividades.",
-      image: "/Yield.png", // Updated path
-      tags: ["TypeScript", "React"],
-      demoLink: "https://focus.lzguimaraes/",
-      codeLink: "https://github.com/LzGuimaraes/FocusLife",
-    },
-    {
-      id: 4,
-      title: "Show do Milhao ",
-      description: 'Jogo "Show do Milhão", para se divertir e passar o tempo.',
-      image: "/ShowMilhao.png", // Updated path
-      tags: ["JavaScript", "React"],
-      demoLink: "https://show-do-milhao-gamma.vercel.app/",
-      codeLink: "https://github.com/LzGuimaraes/Show-do-Milhao",
-    },
-    {
-      id: 5,
-      title: "Movie List ",
-      description: "Plataforma de agendamento de Filmes.",
-      image: "/Movie.png", // Updated path
-      tags: ["JavaScript", "HTML", "CSS"],
-      demoLink: "https://movie-list-eosin-nine.vercel.app",
-      codeLink: "https://github.com/LzGuimaraes/Movie-List",
-    },
-    {
-      id: 6,
-      title: "Learn English ",
-      description: "Plataforma para aprender Ingles.",
-      image: "/Learn.png", // Updated path
-      tags: ["JavaScript", "HTML", "CSS"],
-      demoLink: "https://learn-english-ruby.vercel.app/",
-      codeLink: "https://github.com/LzGuimaraes/LearnEnglish",
-    },
-  ];
+// ============================================================
+// COMO DEIXAR AS IMAGENS DE UM PROJETO EM CARROSSEL
+// ------------------------------------------------------------
+// 1. Coloque os arquivos de imagem na pasta `public/`
+//    (ex.: public/projects/focus-1.png).
+// 2. No array `images` de cada projeto, adicione o caminho de
+//    CADA imagem que quiser mostrar.
+//    Ex.: images: ["/projects/focus-1.png", "/projects/focus-2.png"]
+// 3. O carrossel (setas + pontos + swipe) aparece automaticamente
+//    quando o projeto tiver MAIS DE UMA imagem (images.length > 1).
+// ------------------------------------------------------------
+const projects = [
+  {
+    id: 1,
+    title: "Focus Life",
+    description:
+      "Plataforma fullstack de gestão pessoal, integrando finanças, estudos, tarefas, metas, aulas e treinos, com cotações de ações e ETFs em tempo real.",
+    images: ["/projects/focus-1.png", "/projects/focus-2.png", "/projects/focus-3.png"],
+    tags: ["Java", "Spring Boot", "React", "TypeScript"],
+    demoLink: "https://focus.lzguimaraes.com.br/",
+    codeLink: "https://github.com/LzGuimaraes/FocusLife",
+  },
+  {
+    id: 2,
+    title: "Kung Fu Wushu",
+    description:
+      "Plataforma de gestão da escola Kung Fu Cuiabá, usada por alunos e professores em produção: turmas, alunos, pagamentos e controle de acesso por perfil.",
+    images: ["/projects/wushu-1.png", "/projects/wushu-2.png", "/projects/wushu-3.png"],
+    tags: ["NestJS", "React", "TypeScript", "Vite"],
+    demoLink: "https://wushu.lzguimaraes.com.br",
+    codeLink: "https://github.com/LzGuimaraes/wushu-front",
+  },
+  {
+    id: 3,
+    title: "Show do Milhão",
+    description: 'Jogo "Show do Milhão" para se divertir e passar o tempo.',
+    images: ["/projects/show-1.png", "/projects/show-2.png"],
+    tags: ["JavaScript", "React"],
+    demoLink: "https://show-do-milhao-gamma.vercel.app/",
+    codeLink: "https://github.com/LzGuimaraes/Show-do-Milhao",
+  },
+];
 
+// Carrossel de imagens de um único card de projeto
+const ProjectImageCarousel = ({
+  images,
+  title,
+}: {
+  images: string[];
+  title: string;
+}) => {
+  const [current, setCurrent] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const hasMultiple = images.length > 1;
+
+  const goTo = (e: React.MouseEvent, index: number) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrent((index + images.length) % images.length);
+  };
+
+  const goToIndex = (index: number) => {
+    setCurrent((index + images.length) % images.length);
+  };
+
+  // Suporte a swipe (arrastar) em telas de toque
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(delta) > 40) {
+      goToIndex(current + (delta < 0 ? 1 : -1));
+    }
+    touchStartX.current = null;
+  };
+
+  return (
+    <div
+      className="relative overflow-hidden group/carousel"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      <img
+        src={images[current]}
+        alt={`${title} - imagem ${current + 1}`}
+        className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+
+      {hasMultiple && (
+        <>
+          {/* Contador de imagens */}
+          <div className="absolute top-2 right-2 px-2.5 py-0.5 rounded-full bg-black/50 text-white text-xs font-medium backdrop-blur-sm select-none">
+            {current + 1} / {images.length}
+          </div>
+
+          <button
+            type="button"
+            onClick={(e) => goTo(e, current - 1)}
+            aria-label="Imagem anterior"
+            className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-black/50 text-white rounded-full opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-primary-600 active:scale-90"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={(e) => goTo(e, current + 1)}
+            aria-label="Próxima imagem"
+            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-black/50 text-white rounded-full opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-primary-600 active:scale-90"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex space-x-2">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={(e) => goTo(e, index)}
+                aria-label={`Ir para imagem ${index + 1}`}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === current ? "bg-white w-5" : "bg-white/50"
+                }`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [, setActiveProject] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -92,43 +171,42 @@ const Projects = () => {
       className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-secondary-800 dark:to-secondary-900 relative overflow-hidden"
     >
       {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-50 dark:opacity-20">
-        <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-primary-100 dark:bg-primary-900/20 filter blur-3xl"></div>
-        <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-primary-100 dark:bg-primary-900/20 filter blur-3xl"></div>
+      <div className="absolute inset-0 bg-grid opacity-40 dark:opacity-20" />
+      <div className="absolute inset-0 overflow-hidden opacity-60 dark:opacity-25">
+        <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-indigo-200/50 dark:bg-indigo-900/20 filter blur-3xl"></div>
+        <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-fuchsia-200/50 dark:bg-fuchsia-900/20 filter blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <h2
-          className={`text-3xl md:text-4xl font-heading font-bold text-center mb-4 text-secondary-900 dark:text-white transition-all duration-700 transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-        >
-          <span className="inline-block border-b-4 border-primary-500 pb-2">
-            Meus Projetos
+        <div className="text-center mb-16">
+          <span className="inline-block text-sm font-semibold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-3">
+            Portfólio
           </span>
-        </h2>
-        <p
-          className={`text-secondary-600 dark:text-gray-400 text-center max-w-2xl mx-auto mb-16 transition-all duration-700 delay-100 transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-        >
-          Aqui estão alguns dos projetos que desenvolvi utilizando diversas
-          tecnologias e frameworks.
-        </p>
+          <h2
+            className={`text-3xl md:text-4xl font-heading font-bold mb-4 text-secondary-900 dark:text-white transition-all duration-700 transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          >
+            <span className="inline-block pb-2">Meus <span className="text-gradient">Projetos</span></span>
+          </h2>
+          <p
+            className={`text-secondary-600 dark:text-gray-400 max-w-2xl mx-auto transition-all duration-700 delay-100 transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          >
+            Projetos que desenvolvi unindo backend, frontend e infraestrutura —
+            alguns deles já rodando em produção.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className={`group bg-white dark:bg-secondary-800/50 rounded-xl overflow-hidden shadow-custom hover:shadow-custom-lg transition-all duration-500 transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}`}
+              className={`group bg-white dark:bg-secondary-800/50 rounded-2xl overflow-hidden shadow-custom hover:shadow-card hover:-translate-y-1.5 transition-all duration-500 border border-gray-100 dark:border-secondary-700/50 transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}`}
               style={{ transitionDelay: `${150 * index}ms` }}
-              onMouseEnter={() => setActiveProject(project.id)}
-              onMouseLeave={() => setActiveProject(null)}
             >
               <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-4">
-                  <div className="flex space-x-3">
+                <ProjectImageCarousel images={project.images} title={project.title} />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-4 pointer-events-none">
+                  <div className="flex space-x-3 pointer-events-auto">
                     <a
                       href={project.demoLink}
                       className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-primary-500 transition-colors duration-300"
@@ -188,7 +266,7 @@ const Projects = () => {
                   {project.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 text-xs rounded-full font-medium"
+                      className="px-3 py-1 bg-gradient-to-r from-indigo-50 to-fuchsia-50 dark:from-indigo-900/20 dark:to-fuchsia-900/20 text-primary-700 dark:text-primary-300 text-xs rounded-full font-medium border border-indigo-100 dark:border-secondary-700"
                     >
                       {tag}
                     </span>
@@ -202,7 +280,7 @@ const Projects = () => {
         <div className="text-center mt-16">
           <a
             href="https://github.com/LzGuimaraes"
-            className="inline-flex items-center px-6 py-3 bg-secondary-800 dark:bg-secondary-700 text-white rounded-md hover:bg-secondary-700 dark:hover:bg-secondary-600 transition duration-300 font-medium shadow-custom"
+            className="group inline-flex items-center px-8 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-600 via-primary-600 to-fuchsia-600 bg-[length:200%_auto] hover:bg-right transition-all duration-500 shadow-glow hover:shadow-glow-blue hover:-translate-y-0.5"
             target="_blank"
             rel="noopener noreferrer"
           >
